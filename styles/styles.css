@@ -1,0 +1,82 @@
+#container {
+    display:grid;
+    
+    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: 1fr;
+    grid-gap: 1vw;
+}
+#container > .rows {
+    height: 1200px;
+    border: thin solid red;
+    
+} 
+
+#grid1 {
+    display: grid;
+    grid-template-areas: 
+      "nav nav"
+      "blocks1 blocks2"
+      "blocks3 blocks4"
+      "footer footer";
+    grid-template-rows: 20% 1fr 1fr 20%;
+    grid-template-columns: 1fr 1fr;  
+    height: 100vh;
+    margin: 0;
+}
+
+.blocks, nav {
+    background-color: rgb(0, 204, 255);
+    border: thin solid red;
+}
+nav {
+    grid-area: nav;
+}
+
+#blocks1 {
+    grid-area: blocks1;
+    border: thin solid red;
+}
+#blocks2 {
+    grid-area: blocks2;
+    border: thin solid red;
+}
+#blocks3 {
+    grid-area: blocks3;
+    border: thin solid red;
+}
+#blocks4 {
+    grid-area: blocks4;
+    border: thin solid red;
+}
+#header-footer {
+    grid-area: footer;
+    border: thin solid red;
+}
+
+#grid2 {
+    display: grid;
+    grid-template-areas: 
+      "header-row1 header-row1"
+      "explore membreship"
+      "explore membreship"
+      "footer-row1 footer-row1";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1.5fr 1fr 1.5fr;
+}
+
+#header-row1 {
+ grid-area: header-row1;
+ border: thin solid red;
+}
+#explore {
+    grid-area:explore; 
+    border: thin solid red;
+}
+#membreship {
+    grid-area: membreship;
+    border: thin solid red;
+}
+#footer-row1 {
+    grid-area: footer-row1;
+    border: thin solid red;
+}
