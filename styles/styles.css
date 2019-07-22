@@ -1,82 +1,216 @@
 #container {
-    display:grid;
-    
-    grid-template-rows: repeat(4,1fr);
-    grid-template-columns: 1fr;
-    grid-gap: 1vw;
+  display: grid;
+
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  grid-gap: 1vw;
 }
+
 #container > .rows {
-    height: 1200px;
-    border: thin solid red;
-    
-} 
+  height: 1200px;
+  border: thin solid red;
+
+}
 
 #grid1 {
-    display: grid;
-    grid-template-areas: 
-      "nav nav"
-      "blocks1 blocks2"
-      "blocks3 blocks4"
-      "footer footer";
-    grid-template-rows: 20% 1fr 1fr 20%;
-    grid-template-columns: 1fr 1fr;  
-    height: 100vh;
-    margin: 0;
+  display: grid;
+  grid-template-areas:
+    "nav nav"
+    "blocks1 blocks2"
+    "blocks3 blocks4"
+    "footer footer";
+  grid-template-rows: 20% 1fr 1fr 20%;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  margin: 0;
 }
 
-.blocks, nav {
-    background-color: rgb(0, 204, 255);
-    border: thin solid red;
-}
+.blocks,
 nav {
-    grid-area: nav;
+  background-color: rgb(0, 204, 255);
+  border: thin solid red;
+}
+
+nav {
+  grid-area: nav;
 }
 
 #blocks1 {
-    grid-area: blocks1;
-    border: thin solid red;
+  grid-area: blocks1;
+  border: thin solid red;
 }
+
 #blocks2 {
-    grid-area: blocks2;
-    border: thin solid red;
+  grid-area: blocks2;
+  border: thin solid red;
 }
+
 #blocks3 {
-    grid-area: blocks3;
-    border: thin solid red;
+  grid-area: blocks3;
+  border: thin solid red;
 }
+
 #blocks4 {
-    grid-area: blocks4;
-    border: thin solid red;
+  grid-area: blocks4;
+  border: thin solid red;
 }
+
 #header-footer {
-    grid-area: footer;
-    border: thin solid red;
+  grid-area: footer;
+  border: thin solid red;
 }
 
 #grid2 {
-    display: grid;
-    grid-template-areas: 
-      "header-row1 header-row1"
-      "explore membreship"
-      "explore membreship"
-      "footer-row1 footer-row1";
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1.5fr 1fr 1.5fr;
+  display: grid;
+  grid-template-areas:
+    "header-row1 header-row1"
+    "explore1 membreship1"
+    "footer-row1 footer-row1"
+    "explore2 membreship2"
+    "see-all see-all";
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1.5fr 1fr 1.5fr .5fr;
 }
 
 #header-row1 {
- grid-area: header-row1;
- border: thin solid red;
+  grid-area: header-row1;
+  border: thin solid red;
 }
-#explore {
-    grid-area:explore; 
-    border: thin solid red;
+
+#explore1 {
+  grid-area: explore1;
+  border: thin solid red;
 }
-#membreship {
-    grid-area: membreship;
-    border: thin solid red;
+
+#membreship1 {
+  grid-area: membreship1;
+  border: thin solid red;
 }
+
 #footer-row1 {
-    grid-area: footer-row1;
-    border: thin solid red;
+  grid-area: footer-row1;
+  border: thin solid red;
 }
+
+#explore2 {
+  grid-area: explore2;
+  border: thin solid red;
+}
+
+#membreship2 {
+  grid-area: membreship2;
+  border: thin solid red;
+}
+
+#see-all {
+  grid-area: see-all;
+  border: thin solid red;
+}
+
+/*
+comming-up
+person-week
+people-left
+people-right
+more-links
+featured
+*/
+
+#grid3 {
+  display: grid;
+  grid-template-areas:
+    "comming-up comming-up"
+    "person-week person-week"
+    "people-left people-right"
+    "more-links more-links"
+    "featured featured";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1fr 3fr .5fr 1.5fr;
+}
+
+#comming-up {
+  grid-area: comming-up;
+  border: thin solid red;
+}
+
+#person-week {
+  grid-area: person-week;
+  border: thin solid red;
+}
+
+#people-left {
+  grid-area: people-left;
+  border: thin solid red;
+}
+
+#people-right {
+  grid-area: people-right;
+  border: thin solid red;
+}
+
+#more-links {
+  grid-area: more-links;
+  border: thin solid red;
+}
+
+#featured {
+  grid-area: featured;
+  border: thin solid red;
+}
+
+/*
+guides1
+guides2
+guides3
+guides4
+newsletter
+all-articles
+browse-all
+*/
+
+#grid4 {
+  display: grid;
+  grid-template-areas:
+    "guides1 guides2 guides3"
+    "guides4 newsletter newsletter"
+    "all-articles all-articles all-articles"
+    "browse-all browse-all browse-all";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr .5fr 1.3fr;
+}
+
+#guides1 {
+  border: thin solid red;
+  grid-area: guides1;
+}
+
+#guides2 {
+  border: thin solid red;
+  grid-area: guides2
+}
+
+#guides3 {
+  border: thin solid red;
+  grid-area: guides3;
+}
+
+#guides4 {
+  border: thin solid red;
+  grid-area: guides4;
+}
+
+#newsletter {
+  border: thin solid red;
+  grid-area: newsletter;
+}
+
+#all-articles {
+  border: thin solid red;
+  grid-area: all-articles;
+}
+
+#browse-all {
+  border: thin solid red;
+  grid-area: browse-all;
+}
+
