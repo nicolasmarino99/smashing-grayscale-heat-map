@@ -1,17 +1,3 @@
-//.full-width
-//  display: grid
-//
-//.three-cols
-//
-//.one-plus-two
-//
-//.one-plus-one
-//
-//.app-layout {
-//  display: grid
-//  grid-template-columns: 1fr 1fr 1fr 1fr
-//  grid-template-rows: 100vh
-
 $row-height: 100px
 
 %mark
@@ -20,33 +6,57 @@ $row-height: 100px
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nNicgaGVpZ2h0PSc2Jz4KICA8cmVjdCB3aWR0aD0nNicgaGVpZ2h0PSc2JyBmaWxsPScjZWVlZWVlJy8+CiAgPGcgaWQ9J2MnPgogICAgPHJlY3Qgd2lkdGg9JzMnIGhlaWdodD0nMycgZmlsbD0nI2U2ZTZlNicvPgogICAgPHJlY3QgeT0nMScgd2lkdGg9JzMnIGhlaWdodD0nMicgZmlsbD0nI2Q4ZDhkOCcvPgogIDwvZz4KICA8dXNlIHhsaW5rOmhyZWY9JyNjJyB4PSczJyB5PSczJy8+Cjwvc3ZnPg==")
   background-repeat: repeat
 
-%row
-  height: $row-height
-  margin: 5px
+@mixin heat($pct)
+  border: thin dashed rgba(64, 64, 64, $pct)
+  background-color: rgba(128, 128, 128, $pct)
+  /*background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nNicgaGVpZ2h0PSc2Jz4KICA8cmVjdCB3aWR0aD0nNicgaGVpZ2h0PSc2JyBmaWxsPScjZWVlZWVlJy8+CiAgPGcgaWQ9J2MnPgogICAgPHJlY3Qgd2lkdGg9JzMnIGhlaWdodD0nMycgZmlsbD0nI2U2ZTZlNicvPgogICAgPHJlY3QgeT0nMScgd2lkdGg9JzMnIGhlaWdodD0nMicgZmlsbD0nI2Q4ZDhkOCcvPgogIDwvZz4KICA8dXNlIHhsaW5rOmhyZWY9JyNjJyB4PSczJyB5PSczJy8+Cjwvc3ZnPg==")*/
+  /*background-repeat: repeat*/
+
+@mixin row($size)
+  height: $row-height * $size
   display: flex
   flex-direction: row
   justify-content: flex-start
 
 %cell
-  margin: 5px
+  /*margin: 5px*/
   display: flex
   align-items: center
   justify-content: center
   flex-grow: 1
 
+body
+  padding: 0px
+  margin: 0px
+  border-width: 0px
+  overflow-x: hidden
+
 .container
-  @extend %mark
-  width: 75%
+  /*@extend %mark*/
+  width: 100%
   margin: auto
+  padding: 0px
   display: flex
   flex-direction: column
 
-.two-columns
-  @extend %mark
-  @extend %row
+.full-width
+  /*@extend %mark*/
+  /*@extend %row*/
 
   div
-    @extend %mark
+    /*@extend %mark*/
+    @extend %cell
+    flex-basis: 100%
+
+  div:nth-child(n+2)
+    display: none
+
+.two-columns
+  /*@extend %mark*/
+  /*@extend %row*/
+
+  div
+    /*@extend %mark*/
     @extend %cell
     flex-basis: 50%
 
@@ -54,11 +64,11 @@ $row-height: 100px
     display: none
 
 .three-columns
-  @extend %mark
-  @extend %row
+  /*@extend %mark*/
+  /*@extend %row*/
 
   div
-    @extend %mark
+    /*@extend %mark*/
     @extend %cell
     flex-basis: 33.33%
 
@@ -66,11 +76,11 @@ $row-height: 100px
     display: none
 
 .four-columns
-  @extend %mark
-  @extend %row
+  /*@extend %mark*/
+  /*@extend %row*/
 
   div
-    @extend %mark
+    /*@extend %mark*/
     @extend %cell
     flex-basis: 25%
 
@@ -78,11 +88,11 @@ $row-height: 100px
     display: none
 
 .two-one-columns
-  @extend %mark
-  @extend %row
+  /*@extend %mark*/
+  /*@extend %row*/
 
   div
-    @extend %mark
+    /*@extend %mark*/
     @extend %cell
 
   div:first-child
@@ -92,11 +102,11 @@ $row-height: 100px
     display: none
 
 .one-two-columns
-  @extend %mark
-  @extend %row
+  /*@extend %mark*/
+  /*@extend %row*/
 
   div
-    @extend %mark
+    /*@extend %mark*/
     @extend %cell
     flex-grow: 2
 
@@ -107,12 +117,55 @@ $row-height: 100px
     display: none
 
 div > p
-  width: 2em
   padding: 10px 10px
   text-align: center
   border: thin dashed rgba(0, 32, 165, 0.5)
   background-color: rgba(0, 32, 165, 0.15)
   background-repeat: repeat
   font-family: monospace
-  font-size: 24px
+  font-size: 14px
   font-weight: bold
+
+#row-01
+  @include row(1)
+  @include heat(1.0)
+
+#row-02, #row-03
+  @include row(3.5)
+  @include heat(0.75)
+
+#row-04
+  @include row(2.4)
+  @include heat(0.75)
+
+#row-05, #row-06, #row-07, #row-08
+  @include row(3)
+  @include heat(0.50)
+
+#row-09, #row-15, #row-19
+  @include row(1.2)
+  @include heat(0.50)
+
+#row-10
+  @include row(5)
+  @include heat(0.50)
+
+#row-11, #row-12, #row-13, #row-14
+  @include row(2)
+  @include heat(0.50)
+
+#row-16
+  @include row(2)
+  @include heat(0.50)
+
+#row-17
+  @include row(3.5)
+  @include heat(0.50)
+
+#row-18
+  @include row(4.8)
+  @include heat(0.50)
+
+#row-20
+  @include row(3.5)
+  @include heat(0.50)
