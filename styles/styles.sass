@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap')
 
-$scale: 0.75
+$scale: 0.9
 $row-height: 100px * $scale
 
 %mark
@@ -10,6 +10,11 @@ $row-height: 100px * $scale
   background-repeat: repeat
 
 @mixin heat($pct)
+  @if $pct > 0.5
+    color: white
+  @else
+    color: black
+  /*color: rgb(255 * $pct, 255 * $pct, 255 * $pct)*/
   border: thin solid rgba(64, 64, 64, $pct)
   background-color: rgba(128, 128, 128, $pct)
   /*background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nNicgaGVpZ2h0PSc2Jz4KICA8cmVjdCB3aWR0aD0nNicgaGVpZ2h0PSc2JyBmaWxsPScjZWVlZWVlJy8+CiAgPGcgaWQ9J2MnPgogICAgPHJlY3Qgd2lkdGg9JzMnIGhlaWdodD0nMycgZmlsbD0nI2U2ZTZlNicvPgogICAgPHJlY3QgeT0nMScgd2lkdGg9JzMnIGhlaWdodD0nMicgZmlsbD0nI2Q4ZDhkOCcvPgogIDwvZz4KICA8dXNlIHhsaW5rOmhyZWY9JyNjJyB4PSczJyB5PSczJy8+Cjwvc3ZnPg==")*/
@@ -28,13 +33,14 @@ $row-height: 100px * $scale
   justify-content: center
   flex-grow: 1
   border: 3px inset white
+  border-right: 3px solid grey
 
 body
   padding: 0px
   margin: 0px
   border-width: 0px
   overflow-x: hidden
-  background-color: #002148
+  /*background-color: #002148*/
 
 .container
   /*@extend %mark*/
@@ -43,8 +49,9 @@ body
   padding: 0px
   display: flex
   flex-direction: column
-  background-image: url("../auxiliar/screencapture-smashingmagazine-2019-07-19-13_04_59.png")
+  /*background-image: url("../auxiliar/screencapture-smashingmagazine-2019-07-19-13_04_59.png")*/
   background-size: cover
+
 
 .full-width
   /*@extend %mark*/
@@ -115,9 +122,11 @@ body
   div
     /*@extend %mark*/
     @extend %cell
+    width: 66%
     flex-grow: 2
 
   div:first-child
+    width: 33%
     flex-grow: 1
 
   div:nth-child(n+3)
@@ -126,13 +135,17 @@ body
 div > p
   padding: 10px 10px
   text-align: center
-  color: white
+  /*color: white*/
   font-family: 'Lato', sans-serif
-  font-size: 24px
+  font-size: 50px * $scale
   font-weight: 500
 
 //div
 //  border: thin solid white //rgba(32, 32, 32, 0.15)
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~ Row heights definitions ~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #row-01
   @include row(1.6)
@@ -176,6 +189,10 @@ div > p
 #row-20
   @include row(6.7)
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~ Heat definitions ~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .heat-100
   @include heat(1.0)
 
@@ -184,3 +201,6 @@ div > p
 
 .heat-50
   @include heat(0.50)
+
+.heat-25
+  @include heat(0.25)
