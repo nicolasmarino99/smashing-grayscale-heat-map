@@ -43,11 +43,19 @@ body
   overflow-x: hidden
   /*background-color: #002148*/
 
-//article
-//  color: red
+
+.img-article  
+  display: flex
+  flex-direction: column
+  text-align: left
+
+
+
+
 
 li
-  font-size: $base-font-size * 0.75
+  font-size: $base-font-size * 0.95
+  margin-top: 1em
 
 img
   float: left
@@ -57,6 +65,7 @@ img
 
 a
   color: white
+  text-decoration: none
 
 nav
   width: 100%
@@ -64,6 +73,7 @@ nav
   display: flex
   justify-content: space-between
   align-items: stretch
+  font-size: $base-font-size*1
 
   a
     flex-basis: (100% / 7)
@@ -103,8 +113,7 @@ footer
     @extend %cell
     flex-basis: 100%
 
-  div:nth-child(n+2), article:nth-child(n+2)
-    display: none
+  
 
 .two-columns
   /*@extend %mark*/
@@ -245,3 +254,6 @@ div > p, article > p
 
 .heat-25
   @include heat(0.25)
+
+.heat-10
+  @include heat(0.10)
