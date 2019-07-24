@@ -5,4 +5,4 @@ The objective of it is to try to reflect a [heat map](https://www.optimizely.com
 of the site [smashingmagazine.com](https://www.smashingmagazine.com/) front page, using grayscales to reflect
 which sections are the most appealing to the eye (darkest) and which sections are not (lighter).
 
-* [Live preview](https://rawcdn.githack.com/oscarnava/smashing-grayscale-heat-map/a2673bc485988e478ac6d09c9fd9099e97e274c4/index.html)
+* [Live preview](https://raw.githack.com/oscarnava/smashing-grayscale-heat-map/tree/develop)
