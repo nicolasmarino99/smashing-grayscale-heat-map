@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap')
 
-$scale: 0.9
+$scale: 1
 $row-height: 100px * $scale
+$navigation-scale: 1.6
+$base-font-size: 25px
 
 %mark
   border: thin dashed rgba(146, 0, 165, 0.5)
@@ -14,9 +16,8 @@ $row-height: 100px * $scale
     color: white
   @else
     color: black
-  /*color: rgb(255 * $pct, 255 * $pct, 255 * $pct)*/
   border: thin solid rgba(64, 64, 64, $pct)
-  background-color: rgba(128, 128, 128, $pct)
+  background-color: rgba(0, 0, 0, $pct)
   /*background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nNicgaGVpZ2h0PSc2Jz4KICA8cmVjdCB3aWR0aD0nNicgaGVpZ2h0PSc2JyBmaWxsPScjZWVlZWVlJy8+CiAgPGcgaWQ9J2MnPgogICAgPHJlY3Qgd2lkdGg9JzMnIGhlaWdodD0nMycgZmlsbD0nI2U2ZTZlNicvPgogICAgPHJlY3QgeT0nMScgd2lkdGg9JzMnIGhlaWdodD0nMicgZmlsbD0nI2Q4ZDhkOCcvPgogIDwvZz4KICA8dXNlIHhsaW5rOmhyZWY9JyNjJyB4PSczJyB5PSczJy8+Cjwvc3ZnPg==")*/
   /*background-repeat: repeat*/
 
@@ -42,6 +43,46 @@ body
   overflow-x: hidden
   /*background-color: #002148*/
 
+//article
+//  color: red
+
+li
+  font-size: $base-font-size * 0.75
+
+img
+  float: left
+
+  &.small
+    width: 80px
+
+a
+  color: white
+
+nav
+  width: 100%
+  height: $row-height * $navigation-scale
+  display: flex
+  justify-content: space-between
+  align-items: stretch
+
+  a
+    flex-basis: (100% / 7)
+
+    div
+      margin-top: 5px
+      height: $row-height * $navigation-scale - 10px
+
+footer
+
+  ul
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    li
+      margin: .2em 1em
+      list-style-type: square
+
 .container
   /*@extend %mark*/
   width: 100% * $scale
@@ -57,87 +98,87 @@ body
   /*@extend %mark*/
   /*@extend %row*/
 
-  div
+  div, article
     /*@extend %mark*/
     @extend %cell
     flex-basis: 100%
 
-  div:nth-child(n+2)
+  div:nth-child(n+2), article:nth-child(n+2)
     display: none
 
 .two-columns
   /*@extend %mark*/
   /*@extend %row*/
 
-  div
+  div, article
     /*@extend %mark*/
     @extend %cell
     flex-basis: 50%
 
-  div:nth-child(n+3)
+  div:nth-child(n+3), article:nth-child(n+3)
     display: none
 
 .three-columns
   /*@extend %mark*/
   /*@extend %row*/
 
-  div
+  div, article
     /*@extend %mark*/
     @extend %cell
     flex-basis: 33.33%
 
-  div:nth-child(n+4)
+  div:nth-child(n+4), article:nth-child(n+4)
     display: none
 
 .four-columns
   /*@extend %mark*/
   /*@extend %row*/
 
-  div
+  div, article
     /*@extend %mark*/
     @extend %cell
     flex-basis: 25%
 
-  div:nth-child(n+5)
+  div:nth-child(n+5), article:nth-child(n+5)
     display: none
 
 .two-one-columns
   /*@extend %mark*/
   /*@extend %row*/
 
-  div
+  div, article
     /*@extend %mark*/
     @extend %cell
 
-  div:first-child
+  div:first-child, article:first-child
     flex-grow: 2
 
-  div:nth-child(n+3)
+  div:nth-child(n+3), article:nth-child(n+3)
     display: none
 
 .one-two-columns
   /*@extend %mark*/
   /*@extend %row*/
 
-  div
+  div, article
     /*@extend %mark*/
     @extend %cell
     width: 66%
     flex-grow: 2
 
-  div:first-child
+  div:first-child, article:first-child
     width: 33%
     flex-grow: 1
 
-  div:nth-child(n+3)
+  div:nth-child(n+3), article:nth-child(n+3)
     display: none
 
-div > p
+div > p, article > p
   padding: 10px 10px
   text-align: center
   /*color: white*/
   font-family: 'Lato', sans-serif
-  font-size: 50px * $scale
+  font-size: $base-font-size * $scale
   font-weight: 500
 
 //div
@@ -148,7 +189,7 @@ div > p
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #row-01
-  @include row(1.6)
+  @include row($navigation-scale)
 
 #row-02, #row-03
   @include row(8)
